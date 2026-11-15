@@ -7,7 +7,16 @@
   --border: #d9e2ec;
   --radius: 8px;
 }
-
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --brand: #6aa6e8;
+    --brand-soft: #1b3552;
+    --surface: #1a232e;
+    --page: #111820;
+    --text: #e6ecf2;
+    --border: #2c3a4a;
+  }
+}
 * {
   box-sizing: border-box;
 }
