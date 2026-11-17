@@ -1,3 +1,31 @@
-.activities {
+* {
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+:root {
+  --bg: #282a36;
+  --text: #f8f8f2;
+  --card: #343746;
+}
+body {
+  background: var(--bg);
+  color: var(--text);
+  padding: 40px;
+  margin: 10px;
+}
+
+ul li {
+  list-style-type: none;
   display: flex;
+  gap: 10px;
+  font-weight: 700px;
+}
+
+ul li a {
+  text-decoration: none;
+  padding: 10px;
+  background-color: var(--card);
+  border: solid #44475a 1px;
+  border-radius: 10px;
+  color: var(--text);
 }
