@@ -12,28 +12,15 @@
   --link: #7a0000;
   --badge-gray: #6b5b5b;
 }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #170f0f;
-    --surface: #241717;
-    --text: #f3e9e6;
-    --text-muted: #bba9a5;
-    --border: #3d2a2a;
-    --accent-soft: #3a2c0a;
-    --link: #f5b800;
-    --green: #2e9a49;
-    --badge-gray: #8a7773;
-    color-scheme: dark;
-  }
-}
+
 @media (min-width: 600px) {
-  .notices {
+  #notices {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (min-width: 960px) {
-  .notices {
+  #notices {
     grid-template-columns: repeat(3, 1fr);
   }
   header {
@@ -41,7 +28,7 @@
     grid-area: header;
   }
   body {
-    grid-template-columns: 1fr 300px;
+    grid-template-columns: minmax(0, 1fr) 300px;
     grid-template-areas:
       "header header"
       "main   aside"
@@ -60,69 +47,32 @@
 * {
   box-sizing: border-box;
 }
-
-body {
-  font-family: "Times New Roman", Times, serif;
-  font-size: 1rem;
-  line-height: 1.5;
-  margin: 0;
-  background: var(--bg);
-  color: var(--text);
-  display: grid;
-  gap: 16px;
-}
-
 header {
   background: var(--primary);
   color: white;
   padding: 5px 24px 5px 24px;
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
   border-bottom: solid 4px var(--accent);
   align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  background-color: var(--primary);
+  z-index: 10;
 }
 
 header img {
   max-width: 100%;
   width: 60px;
   height: auto;
-  margin-right: 15px;
 }
-main {
-  max-width: 1100px;
-  margin: 24px auto;
-  padding: 0 16px;
-}
-
-#notices {
-  display: grid;
-  gap: 10px;
-  grid-template-columns: 1fr;
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
-.notice {
-  background: var(--surface);
-  border: solid 2px var(--border);
-  padding: 16px;
-  margin-bottom: 0;
-  border-radius: 8px;
-}
-
-.tag {
-  background: var(--brand-soft);
-  border-radius: 4px;
-  padding: 2px 8px;
-  font-size: 0.85rem;
-}
-
-footer {
-  text-align: center;
-  padding: 16px;
-}
-.navlinks {
-  margin-left: auto;
-}
 nav ul {
   display: flex;
   flex-wrap: wrap;
@@ -142,6 +92,57 @@ nav a {
 }
 nav a:hover {
   text-decoration: underline;
+  color: var(--accent);
+}
+
+body {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+
+main {
+  min-width: 0;
+  margin: 24px 0 0 auto;
+  padding: 0 32px;
+}
+
+aside {
+  min-width: 0;
+  padding: 0 32px;
+  margin: 24px auto;
+}
+
+#notices {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr;
+}
+
+.notice {
+  background: var(--surface);
+  border: solid 2px var(--border);
+  padding: 16px;
+  margin-bottom: 0;
+  border-radius: 8px;
+}
+
+.tag {
+  background: var(--accent-soft);
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-size: 0.85rem;
+}
+
+footer {
+  text-align: center;
+  padding: 16px;
 }
 
 table {
@@ -149,12 +150,13 @@ table {
   width: 100%;
   background: var(--surface);
   display: block;
+  border-radius: 8px;
   overflow-x: auto;
 }
 th,
 td {
   color: var(--text);
-  border: 1px solid var(--border);
+  border: 2px solid var(--border);
   padding: 8px;
   text-align: left;
 }
@@ -167,24 +169,27 @@ select,
 textarea {
   width: 100%;
   padding: 8px;
-  border: 1px solid var(--border);
-  border-radius: 4px;
+  border: 2px solid var(--border);
+  border-radius: 8px;
   font: inherit;
 }
 input:focus,
 select:focus,
 textarea:focus {
-  outline: 3px solid var(--brand);
+  outline: 2px solid var(--primary);
 }
-
+#date {
+  color: var(--text-muted);
+}
 button {
   background: var(--primary);
   color: var(--surface);
   border: 0;
-  border-radius: var(--radius);
+  border-radius: 8px;
   padding: 10px 20px;
   font: inherit;
   cursor: pointer;
+  font-weight: bold;
 }
 button:hover {
   background: var(--primary-dark);
@@ -194,4 +199,5 @@ img {
   max-width: 100%;
   height: auto;
 }
+
 /* The last rule won because CSS reads from top to bottom and if there are two rules with the same specificty it follows the later one */
