@@ -34,7 +34,7 @@ body {
 
 .container a {
   background-color: var(--card);
-  border-radius: 10px;
+  border-radius: 8px;
   text-decoration: none;
   padding: 10px;
   color: var(--text);
@@ -42,7 +42,7 @@ body {
 
 a:hover {
   background-color: lightgray;
-  border-radius: 10px;
+  border-radius: 8px;
   border: solid blue 1px;
   color: black;
 }
