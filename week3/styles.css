@@ -56,7 +56,7 @@ header {
   border-bottom: solid 4px var(--accent);
   align-items: center;
   justify-content: space-between;
-  position: sticky;
+
   top: 0;
   background-color: var(--primary);
   z-index: 10;
