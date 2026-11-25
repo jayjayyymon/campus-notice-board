@@ -24,8 +24,8 @@ img {
   max-width: 300px;
   aspect-ratio: 16/9;
   border: solid lightgray 1px;
-  border-radius: 8px;
-  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.15);
+  /*border-radius: 8px;*/
+  /*box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.15);*/
 }
 
 .week {
@@ -40,5 +40,5 @@ img {
 }
 
 h1 {
-  font-size: clamp(2rem, 60px, 4rem);
+  font-size: clamp(2rem, 50px, 4rem);
 }
